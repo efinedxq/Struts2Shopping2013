@@ -23,10 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
  <script type="text/javascript">
     function modifyGoods(){
+    	
+    	alert("MMMMMMMMMMMMMMM");
     	f = document.forms[0]
     	f.action = "modifyGoods";
     }
     function deleteGoods(){
+    	alert("DDDDDDDDDDDDDDD");
     	f = document.forms[0]
     	f.action = "deleteGoods";
     }
@@ -48,9 +51,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>物品数量</td>
 			<td></td>
 		</tr>
-		<s:iterator value="cart" var="item">
+		<s:iterator value="cart" var="item" status="st">
 		<tr>
-		<form  method="post">
+		<form  method="post" >
 		<input type="hidden" name="goodsId" value="${item.goods.goodsId}"/>
 			<td>${item.goods.goodsId}</td>
 			<td>${item.goods.goodsName}</td>
