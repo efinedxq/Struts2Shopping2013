@@ -22,15 +22,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
  <script type="text/javascript">
-    function modifyGoods(){
+    function modifyGoods(i){
     	
-    	alert("MMMMMMMMMMMMMMM");
-    	f = document.forms[0]
+    	alert("MMMMMMM:i"+i);
+    	f = document.forms[i-1];
     	f.action = "modifyGoods";
     }
-    function deleteGoods(){
-    	alert("DDDDDDDDDDDDDDD");
-    	f = document.forms[0]
+    function deleteGoods( i){
+    	alert("DDDDDDD:i"+i);
+    	f = document.forms[i-1];
     	f.action = "deleteGoods";
     }
   </script>
@@ -60,8 +60,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>${item.goods.price}</td>
 			<td><input type="text" name="quantity" value="${item.quantity}"/></td>
 			<td>
-			  <input type="submit" id="modify" onclick="modifyGoods();"  value="修 改" />  
-			  <input type="submit" id="delete" onclick="deleteGoods();" value="删 除" /></td>
+			  <input type="submit" id="modify" onclick="modifyGoods(<s:property value="#st.count"/>);"  value="修 改" />  
+			  <input type="submit" id="delete" onclick="deleteGoods(<s:property value='#st.count'/>);" value="删 除" /></td>
 		</form>
 		</tr>
 		</s:iterator>
